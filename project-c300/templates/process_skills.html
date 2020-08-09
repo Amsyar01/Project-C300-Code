@@ -1,0 +1,542 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+
+
+<title>Process Skills</title>
+
+<div class="row d-flex justify-content-center">
+  <div class="white-bg custom-shadow w-75 flex-column d-flex justify-content-center ">
+
+    <div class="row">
+       <div class="w-100 d-flex justify-content-center ">
+         <img src=/static/institute_of_mental_health.png width="500" height="275">
+       </div>
+    </div>
+    <div class="d-flex justify-content-center">
+    <h3>ID: {{ id }}</h3>
+    </div>
+
+    <hr/>
+
+    <div class="row d-flex justify-content-center">
+      <div class="d-flex justify-content-center ">
+        <div style="margin-right:20px;margin-left:20px;">
+        <form action="addprocess" method="post">
+	<div>
+	  <label class="form-check-label ">
+	  * (immediate failure component)
+	  </label>
+	</div>
+        <table class="table table-striped ">
+          <thead>
+            <tr>
+              <th scope="col" style="width:10%;">Process Skills</th>
+              <th scope="col">4 points</th>
+              <th scope="col">3 points</th>
+              <th scope="col">2 points </th>
+              <th scope="col">1 points </th>
+              <th scope="col">Not Assessed</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- Row1_start-------------------------- -->
+            <tr>
+
+              <th scope="row">*Attention / Concentration</th>
+
+              <td>
+              <div class="form-check">
+                <input class="form-check-input radi" type="radio" name="row1" id="pt4" value="4" required>
+                <label class="form-check-label " for="pt4">
+                  {{ac[4]}}
+                </label>
+              </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row1" id="pt3" value="3" required>
+                  <label class="form-check-label" for="pt3">
+                    {{ac[3]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row1" id="pt2" value="2" required>
+                  <label class="form-check-label" for="pt2">
+                    {{ac[2]}}
+                  </label>
+                </div>
+              </td>
+
+              <td class="bg-primary">
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row1" id="pt1" value="1" required>
+                  <label class="form-check-label" style="color:#FFFFFF" for="pt1">
+                    {{ac[1]}}
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row1" id="NA" value="0" required>
+                  <label class="form-check-label" for="NA">
+                    {{ac[0]}}
+                  </label>
+                </div>
+              </td>
+
+            </tr>
+
+            <!-- Row1end========================================= -->
+            <!-- Row2start========================================= -->
+
+            <tr>
+              <th scope="row">*Follow Instructions</th>
+              <td>
+              <div class="form-check">
+                <input class="form-check-input radi" type="radio" name="row2" id="pt4" value="4" required>
+                <label class="form-check-label" for="pt4">
+                  {{fi[4]}}
+                </label>
+              </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row2" id="pt3" value="3" required>
+                  <label class="form-check-label" for="pt3">
+                    {{fi[3]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row2" id="pt2" value="2" required>
+                  <label class="form-check-label" for="pt2">
+                    {{fi[2]}}
+                  </label>
+                </div>
+              </td>
+
+              <td class="bg-primary">
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row2" id="pt1" value="1" required>
+                  <label class="form-check-label" style="color:#FFFFFF"for="pt1">
+                    {{fi[1]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row2" id="NA" value="0" required>
+                  <label class="form-check-label" for="NA">
+                    {{fi[0]}}
+                  </label>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row2end========================================= -->
+            <!-- Row3start========================================= -->
+
+            <tr>
+              <th scope="row">*Frustration tolerance</th>
+              <td>
+              <div class="form-check">
+                <input class="form-check-input radi" type="radio" name="row3" id="pt4" value="4" required>
+                <label class="form-check-label" for="pt4">
+                  {{fd[4]}}
+              </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row3" id="pt3" value="3" required>
+                  <label class="form-check-label" for="pt3">
+                    {{fd[3]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row3" id="pt2" value="2" required>
+                  <label class="form-check-label" for="pt2">
+                    {{fd[2]}}
+                  </label>
+                </div>
+              </td>
+
+              <td class="bg-primary">
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row3" id="pt1" value="1" required>
+                  <label class="form-check-label" style="color:#FFFFFF"or="pt1">
+                    {{fd[1]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row3" id="NA" value="0" required>
+                  <label class="form-check-label" for="NA">
+                    {{fd[0]}}
+                  </label>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row3end========================================= -->
+            <!-- Row4start========================================= -->
+
+            <tr>
+              <th scope="row">Attention to detail</th>
+              <td>
+              <div class="form-check">
+                <input class="form-check-input radi" type="radio" name="row4" id="pt4" value="4" required>
+                <label class="form-check-label" for="pt4">
+                  {{atd[4]}}
+                </label>
+              </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row4" id="pt3" value="3" required>
+                  <label class="form-check-label" for="pt3">
+                    {{atd[3]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row4" id="pt2" value="2" required>
+                  <label class="form-check-label" for="pt2">
+                    {{atd[2]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row4" id="pt1" value="1" required>
+                  <label class="form-check-label" for="pt1">
+                    {{atd[1]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row4" id="NA" value="0" required>
+                  <label class="form-check-label" for="NA">
+                    {{atd[0]}}
+                  </label>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row4end========================================= -->
+            <!-- Row5start========================================= -->
+            <tr>
+              <th scope="row">Initiation of new task</th>
+              <td>
+              <div class="form-check">
+                <input class="form-check-input radi" type="radio" name="row5" id="pt4" value="4" required>
+                <label class="form-check-label" for="pt4">
+                  {{inw[4]}}
+                </label>
+              </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row5" id="pt3" value="3" required>
+                  <label class="form-check-label" for="pt3">
+                    {{inw[3]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row5" id="pt2" value="2" required>
+                  <label class="form-check-label" for="pt2">
+                    {{inw[2]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row5" id="pt1" value="1" required>
+                  <label class="form-check-label" for="pt1">
+                    {{inw[1]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row5" id="NA" value="0" required>
+                  <label class="form-check-label" for="NA">
+                    {{inw[0]}}
+                  </label>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row5end========================================= -->
+            <!-- Row6start========================================= -->
+
+            <tr>
+              <th scope="row">Termination of task</th>
+              <td>
+              <div class="form-check">
+                <input class="form-check-input radi" type="radio" name="row6" id="pt4" value="4" required>
+                <label class="form-check-label" for="pt4">
+                  {{tot[4]}}
+                </label>
+              </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row6" id="pt3" value="3" required>
+                  <label class="form-check-label" for="pt3">
+                    {{tot[3]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row6" id="pt2" value="2" required>
+                  <label class="form-check-label" for="pt2">
+                    {{tot[2]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row6" id="pt1" value="1" required>
+                  <label class="form-check-label" for="pt1">
+                    {{tot[1]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row6" id="NA" value="0" required>
+                  <label class="form-check-label" for="NA">
+                    {{tot[0]}}
+                  </label>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row6end========================================= -->
+            <!-- Row7start========================================= -->
+
+            <tr>
+              <th scope="row">Organizational ability</th>
+              <td>
+              <div class="form-check">
+                <input class="form-check-input radi" type="radio" name="row7" id="pt4" value="4" required>
+                <label class="form-check-label" for="pt4">
+                  {{oa[4]}}
+                </label>
+              </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row7" id="pt3" value="3" required>
+                  <label class="form-check-label" for="pt3">
+                    {{oa[3]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row7" id="pt2" value="2" required>
+                  <label class="form-check-label" for="pt2">
+                    {{oa[2]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row7" id="pt1" value="1" required>
+                  <label class="form-check-label" for="pt1">
+                    {{oa[1]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row7" id="NA" value="0" required>
+                  <label class="form-check-label" for="NA">
+                    {{oa[0]}}
+                  </label>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row7end========================================= -->
+            <!-- Row8start========================================= -->
+
+            <tr>
+              <th scope="row">Problem Solving</th>
+              <td>
+              <div class="form-check">
+                <input class="form-check-input radi" type="radio" name="row8" id="pt4" value="4" required>
+                <label class="form-check-label" for="pt4">
+                  {{ps[4]}}
+              </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row8" id="pt3" value="3" required>
+                  <label class="form-check-label" for="pt3">
+                    {{ps[3]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row8" id="pt2" value="2" required>
+                  <label class="form-check-label" for="pt2">
+                    {{ps[2]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row8" id="pt1" value="1" required>
+                  <label class="form-check-label" for="pt1">
+                    {{ps[1]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row8" id="NA" value="0" required>
+                  <label class="form-check-label" for="NA">
+                    {{ps[0]}}
+                  </label>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row8end========================================= -->
+
+            <!-- Row9start========================================= -->
+
+            <tr>
+              <th scope="row">Time management</th>
+              <td>
+              <div class="form-check">
+                <input class="form-check-input radi" type="radio" name="row9" id="pt4" value="4" required>
+                <label class="form-check-label" for="pt4">
+                  {{tm[4]}}
+              </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row9" id="pt3" value="3" required>
+                  <label class="form-check-label" for="pt3">
+                    {{tm[3]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row9" id="pt2" value="2" required>
+                  <label class="form-check-label" for="pt2">
+                    {{tm[2]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row9" id="pt1" value="1" required>
+                  <label class="form-check-label" for="pt1">
+                    {{tm[1]}}
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input radi" type="radio" name="row9" id="NA" value="0" required>
+                  <label class="form-check-label" for="NA">
+                    {{tm[0]}}
+                  </label>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row9end========================================= -->
+            <tr>
+              <td colspan="6">
+                <div class="d-flex flex-row">
+                  <h3>Total:</h3>
+                  &nbsp; &nbsp; <!-- Space -->
+                <input name="total" id="total" class="form-control col-sm-2"readOnly/>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-flex bd-highlight flex-nowrap mb-3 w-100">
+          <div class=" order-2 ml-auto p-2 bd-highlight">
+            <input class="btn btn-primary" type="submit" value="NEXT"/>
+            </form>
+          </div>
+          <div class="mr-auto p-2 bd-highlight">
+            <form action="/staff/motor" method="post">
+            <input class="btn btn-primary"  type="submit" value="BACK"/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <script type="text/javascript">
+        function goback(){
+          window.history.back();
+        }
+        $(document).ready(function(){
+          $(".radi").click(function(e){
+            console.log();
+              var total = 0;
+              $(".radi:checked").each(function() { total += +this.value; });
+              $("#total").val(total);
+            })
+          })
+        </script>
+
+{% endblock %}

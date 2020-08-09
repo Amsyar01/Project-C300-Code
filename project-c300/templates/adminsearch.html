@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<title>Search CLIENT</title>
+<script type="text/javascript">
+  function goback(){
+    window.history.back();
+  }
+
+</script>
+
+<div class="row d-flex justify-content-center">
+  <div class="white-bg custom-shadow w-50 flex-column d-flex justify-content-center ">
+
+      <div class="row">
+         <div class="w-100 d-flex justify-content-center ">
+           <img src=/static/institute_of_mental_health.png width="500" height="275">
+         </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="w-100 d-flex justify-content-center ">
+             <form action="report" method="post">
+
+              <h1>Search for Client ID</h1>
+              <br/>
+              <label for="id" class="sr-only">User_ID</label>
+              <input type="text" id="id" name ="id" class="form-control" placeholder="Example: VT_YYYYMMDD_001" required>
+
+
+            <div class="d-flex bd-highlight mb-3 w-100 ">
+              <div class="p-2 bd-highlight">
+                <input class="btn btn-primary" onclick="goback()" type="button" value="BACK"/>
+              </div>
+              <div class="ml-auto p-2 bd-highlight">
+                <input class="btn btn-primary" type="submit" value="Search"/>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

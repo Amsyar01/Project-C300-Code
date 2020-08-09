@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<title>Select Option</title>
+<script type="text/javascript">
+  function goback(){
+    window.history.back();
+  }
+
+</script>
+<div class="row d-flex justify-content-center">
+  <div class="white-bg custom-shadow w-50 flex-column d-flex justify-content-center ">
+    <div class="row">
+      <div class="w-100 d-flex justify-content-center ">
+        <img src=/static/institute_of_mental_health.png width="500" height="275">
+      </div>
+    </div>
+
+  <hr/>
+
+
+    <div>
+      <div class="row d-flex justify-content-center">
+        <h1>Welcome {{ data }}!</h1>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <h1>Select Option</h1>
+      </div>
+      <div>
+        <div class="w-100 d-flex justify-content-center">
+          <div>
+            <form class="row d-flex justify-content-center" action='/staff/clientcreation' method='post'>
+              <input type='submit' class="btn btn primary btn-lg" value="Make New Client" />
+            <!-- <a class="btn btn primary btn-lg" id='create' href="/staff/clientcreation">Make New Client</a> -->
+            </form>
+            <form class="row d-flex justify-content-center" action='/staff/existclient' method='post'>
+              <input type='submit' class="btn btn primary btn-lg" value="Select Existing Client" />
+            </form>
+            <div class="d-flex justify-content-center">
+              <div>
+                <form action='/' method='post'>
+                  <input class="btn btn-outline-dark" type="submit" value="LOG OUT"/>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}

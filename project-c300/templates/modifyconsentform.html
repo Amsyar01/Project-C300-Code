@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+
+
+<title>Update Consent Form</title>
+
+
+<div class="row d-flex justify-content-center">
+  <div class="white-bg custom-shadow w-75 flex-column d-flex justify-content-center ">
+
+  <div class="row">
+     <div class="w-100 d-flex justify-content-center ">
+       <img src=/static/institute_of_mental_health.png width="500" height="275">
+     </div>
+  </div>
+  <hr/>
+      <div class="row d-flex justify-content-center">
+        <h1>Modify Consent Form</h1>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <h1>Enter the code you wanted to modify</h1>
+      </div>
+      <div class="row d-flex justify-content-center flex-row">
+        <form action="/changeform" method="post" class="d-flex flew-row">
+          <select id="id" name="id" class="form-control" required>
+              <option value="" disabled selected> -- CHOOSE ONE -- </option>
+              <option value="retail,6">retail,6</option>
+              <option value="retail,5">retail,5</option>
+              <option value="retail,4">retail,4</option>
+              <option value="retail,3">retail,3</option>
+              <option value="retail,2">retail,2</option>
+              <option value="retail,1">retail,1</option>
+              <option value="afbc,6">afbc,6</option>
+              <option value="afbc,5">afbc,5</option>
+              <option value="afbc,4">afbc,4</option>
+              <option value="afbc,3">afbc,3</option>
+              <option value="afbc,2">afbc,2</option>
+              <option value="afbc,1">afbc,1</option>
+            </select>
+        &nbsp; &nbsp;
+        <br/>
+        <input type="text" id="desc" name="desc" class="form-control" placeholder="Description" required>
+        &nbsp; &nbsp;
+        <div>
+          <input class="btn btn-primary" type="submit" value="MODIFY" id="choose"/>
+        </div>
+
+      </form>
+      </div>
+      <hr/>
+      <table class="table table-striped ">
+        <thead>
+          <tr>
+            <th scope="col">Points</th>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            <th scope="col">4</th>
+            <th scope="col">5</th>
+            <th scope="col">6</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row1_start-------------------------- -->
+          <tr>
+            <th scope="row">Retail</th>
+            <td>
+
+
+                  <b>(retail,1)</b>
+                  <br>
+                  {{ retail[0] }}
+
+
+            </td>
+
+            <td>
+
+
+                  <b>(retail,2)</b>
+                  <br>
+                  {{ retail[1] }}
+
+
+            </td>
+
+            <td>
+
+
+                  <b>(retail,3)</b>
+                  <br>
+                  {{ retail[2] }}
+
+
+            </td>
+
+            <td>
+
+
+                  <b>(retail,4)</b>
+                  <br>
+                  {{ retail[3] }}
+
+
+            </td>
+
+            <td>
+
+
+                  <b>(retail,5)</b>
+                  <br>
+                  {{ retail[4] }}
+
+
+            </td>
+
+            <td>
+
+
+                  <b>(retail,6)</b>
+                  <br>
+                  {{ retail[5] }}
+
+
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Receptionist/F&B/Cleaning</th>
+            <td>
+
+
+                  <b>(afbc,1)</b>
+                  <br>
+                  {{ afbc[0] }}
+
+
+            </td>
+
+            <td>
+
+
+                  <b>(afbc,2)</b>
+                  <br>
+                  {{ afbc[1] }}
+
+
+            </td>
+
+            <td>
+
+
+                  <b>(afbc,3)</b>
+                  <br>
+                  {{ afbc[2] }}
+
+
+            </td>
+
+            <td>
+
+
+                  <b>(afbc,4)</b>
+                  <br>
+                  {{ afbc[3] }}
+
+
+            </td>
+
+            <td>
+
+
+                  <b>(afbc,5)</b>
+                  <br>
+                  {{ afbc[4] }}
+
+
+            </td>
+
+            <td>
+
+
+                  <b>(afbc,6)</b>
+                  <br>
+                  {{ afbc[5] }}
+
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <div class="d-flex bd-highlight mb-3 w-100 ">
+        <div class="p-2 bd-highlight">
+          <form action='selectmodify' method='post'>
+            <input type='submit' class="btn btn-primary btn-lg" value="BACK" />
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function goback(){
+      window.history.back();
+    }
+  </script>
+
+{% endblock %}

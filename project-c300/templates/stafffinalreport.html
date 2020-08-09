@@ -1,0 +1,267 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+ <!-- <title>Summary of  *<Jobname>* vocational training assesment on *<Date>* </title> >  -->
+<title>Summary Page</title>
+
+<script type="text/javascript">
+  function goback(){
+    window.history.back();
+  }
+</script>
+
+
+<!-- Logo -->
+<!-- ======================================================================================= -->
+<div class="row d-flex justify-content-center">
+  <div class="white-bg custom-shadow w-75 flex-column d-flex justify-content-center ">
+      <tbody id="parent">
+    <div class="d-flex justify-content-center">
+      <h4>ID: {{ id }}
+      </h4>
+    </div>
+    <div class="d-flex justify-content-center">
+      <h4>
+      Summary Report Of <u>{{ voc }}</u> Vocational Training Assessment OcTAVE@IMH On <u>{{ date }}</u></h4>
+    </div>
+<!-- ======================================================================================= -->
+<!-- Main  -->
+<!-- ======================================================================================= -->
+<!-- Motor Skills -->
+
+    <table class="table table-bordered ">
+      <thead>
+        <tr >
+          <th scope="col">Motor Skill Component</th>
+          <th scope="col">Scoring</th>
+          <th scope="col">Descriptor</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <th>*Body positions</th>
+          <td>{{ point[3] }}/4</td>
+          <td>{{ desc[3] }}</td>
+        </tr>
+
+        <tr>
+          <th>*Balance:</th>
+          <td>{{ point[2] }}/4</td>
+          <td>{{ desc[2] }}</td>
+        </tr>
+
+        <tr>
+          <th>*Strength:</th>
+          <td>{{ point[16] }}/4</td>
+          <td>{{ desc[16] }}</td>
+        </tr>
+
+        <tr>
+          <th>*Physical endurance:</th>
+          <td>{{ point[12] }}/4</td>
+          <td>{{ desc[12] }}</td>
+        </tr>
+
+        <tr>
+          <th>Subtotal score:</th>
+          <td colspan = "2">{{ mskill }}/16</td>
+        </tr>
+
+        <thead>
+          <tr >
+            <th scope="col">Process Skills Component</th>
+            <th scope="col">Scoring</th>
+            <th scope="col">Descriptor</th>
+          </tr>
+        </thead>
+
+        <tr>
+          <th>*Attention/concentration</th>
+          <td>{{ point[0] }}/4</td>
+          <td>{{ desc[0] }}</td>
+        </tr>
+
+        <tr>
+          <th>*Follow instructions:</th>
+          <td>{{ point[6] }}/4</td>
+          <td>{{ desc[6] }}</td>
+        </tr>
+
+        <tr>
+          <th>*Frustration tolerance:</th>
+          <td>{{ point[7] }}/4</td>
+          <td>{{ desc[7] }}</td>
+        </tr>
+
+        <tr>
+          <th>Attention to detail:</th>
+          <td>{{ point[1] }}/4</td>
+          <td>{{ desc[1] }}</td>
+        </tr>
+
+        <tr>
+          <th>Initiation of new task:</th>
+          <td>{{ point[9] }}/4</td>
+          <td>{{ desc[9] }}</td>
+        </tr>
+
+        <tr>
+          <th>Termination of tasks:</th>
+          <td>{{ point[18] }}/4</td>
+          <td>{{ desc[18] }}</td>
+        </tr>
+
+        <tr>
+          <th>Organization ability:</th>
+          <td>{{ point[11] }}/4</td>
+          <td>{{ desc[11] }}</td>
+        </tr>
+
+        <tr>
+          <th>Problem Solving:</th>
+          <td>{{ point[13] }}/4</td>
+          <td>{{ desc[13] }}</td>
+        </tr>
+
+        <tr>
+          <th>Time Managements:</th>
+          <td>{{ point[17] }}/4</td>
+          <td>{{ desc[17] }}</td>
+        </tr>
+
+        <tr>
+          <th>Subtotal score:</th>
+          <td colspan = "2">{{ pskill }}/36</td>
+        </tr>
+
+        <thead>
+          <tr >
+            <th scope="col">Social Interaction Skills Component</th>
+            <th scope="col">Scoring</th>
+            <th scope="col">Descriptor</th>
+          </tr>
+        </thead>
+
+        <tr>
+          <th>*Gesture</th>
+          <td>{{ point[8] }}/4</td>
+          <td>{{ desc[8] }}</td>
+        </tr>
+
+        <tr>
+          <th>*Social distance:</th>
+          <td>{{ point[15] }}/4</td>
+          <td>{{ desc[15] }}</td>
+        </tr>
+
+        <tr>
+          <th>*Undesirable social behaviour:</th>
+          <td>{{ point[19] }}/4</td>
+          <td>{{ desc[19] }}</td>
+        </tr>
+
+        <tr>
+          <th>Eye Contact:</th>
+          <td>{{ point[5] }}/4</td>
+          <td>{{ desc[5] }}</td>
+        </tr>
+
+        <tr>
+          <th>Clear and audible speech:</th>
+          <td>{{ point[4] }}/4</td>
+          <td>{{ desc[4] }}</td>
+        </tr>
+
+        <tr>
+          <th>*Seeking clarification:</th>
+          <td>{{ point[14] }}/4</td>
+          <td>{{ desc[14] }}</td>
+        </tr>
+
+        <tr>
+          <th>Maintaining conversation:</th>
+          <td>{{ point[10] }}/4</td>
+          <td>{{ desc[10] }}</td>
+        </tr>
+
+        <tr>
+          <th>Subtotal score:</th>
+          <td colspan = "2">{{ sskill }}/28</td>
+        </tr>
+
+        <tr>
+          <th>Safety awareness</th>
+          <td colspan = "2">{{ sa }}</td>
+        </tr>
+
+        <tr>
+          <th>Total scores</th>
+          <th colspan = "2">{{ total }}/80 ({{ x }})</th>
+        </tr>
+     <!--Total Scores -->
+     <!-- ======================================================================================= -->
+     </tbody>
+     </table>
+
+    <!-- ======================================================================================= -->
+    <!-- Summary -->
+    <!-- ======================================================================================= -->
+    <!-- Title of Summary -->
+    <!-- ======================================================================================= -->
+
+    <!-- ======================================================================================= -->
+    <!-- ======================================================================================= -->
+
+    <div>
+      <b><label style="font-size:15px" class="col-sm-12">Areas of Improvement: (If Fail) {{ aoi }}</label></b>
+    </div>
+
+    <div>
+     <label style="font-size:15px" class="col-sm-12" for="comment"><b>Comment(if any):</b></label>
+     <textarea style="font-size:15px" class="form-control col-sm-12" rows="2" id="comment"></textarea>
+    </div>
+
+    <div>
+     <label style="font-size:15px" class="col-sm-12" for="Recommendation"><b>Recommendation Plan:</b></label>
+     <textarea style="font-size:15px" class="form-control col-sm-12" rows="2" id="comment"></textarea>
+    </div>
+
+
+    <div>
+      <b><label style="font-size:15px" class="col-sm-6">Assessed by: <u>{{ uname }}</u></label></b>
+    </div>
+
+
+    <!-- Buttons -->
+    <!-- ======================================================================================= -->
+    <div class="d-flex bd-highlight mb-3 w-100 ">
+      <div class="p-2 bd-highlight">
+        <form action="motor" method="post">
+        <input class="btn btn-primary" type="submit" value="Edit"/>
+        </form>
+      </div>
+      <div class="ml-auto p-2 bd-highlight">
+        <form action="/staff" method="post">
+        <input class="btn btn-primary" type="submit" value="Staff Home Page"/>
+        </form>
+      </div>
+      <div class="ml-auto p-2 bd-highlight">
+        <form action="history" method="post">
+        <input class="btn btn-primary" type="submit" value="Summary/Overview"/>
+        </form>
+      </div>
+      <div class="ml-auto p-2 bd-highlight">
+        <form action="/staff/consentform" method="post">
+        <input class="btn btn-primary" type="submit" value="Consent Form"/>
+        </form>
+      </div>
+    </div>
+<!-- ======================================================================================= -->
+
+  </div>
+</div>
+
+
+{% endblock %}

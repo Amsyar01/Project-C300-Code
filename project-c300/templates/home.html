@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<title>Home</title>
+<script type="text/javascript">
+  function goback(){
+    window.history.back();
+  }
+</script>
+<div class="row d-flex justify-content-center">
+  <div class="white-bg custom-shadow w-50 flex-column d-flex justify-content-center ">
+
+    <div class="row">
+       <div class="w-100 d-flex justify-content-center ">
+         <img src=/static/institute_of_mental_health.png width="500" height="275">
+       </div>
+    </div>
+
+    <div class="row">
+        <div class="w-100 d-flex justify-content-center ">
+         <form action="login" method="POST">
+           <div>
+            <h1>Please sign in</h1>
+              <label for="uid" class="sr-only">User ID</label>
+                <input type="text" id="uid" name="uid" class="form-control" placeholder="User ID" required>
+                <br>
+                <label for="passwd" class="sr-only">Password</label>
+                <input type="password" id="passwd" name="passwd" class="form-control" placeholder="Password" required>
+                <br>
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Sign in</button>
+            </div>
+          </form>
+          </div>
+       </div>
+    </div>
+
+
+{% endblock %}

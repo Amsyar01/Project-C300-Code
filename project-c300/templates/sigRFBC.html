@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+
+{%block main%}
+
+<title>Consent Form</title>
+
+<div class="row d-flex justify-content-center">
+  <div class="white-bg custom-shadow w-75 flex-column d-flex justify-content-center ">
+
+    <div class="row">
+       <div class="w-100 d-flex justify-content-center ">
+         <img src=/static/institute_of_mental_health.png width="500" height="275">
+       </div>
+    </div>
+    <div class="d-flex justify-content-center flex-column w-75 align-self-center ">
+
+    <div class="d-flex justify-content-center">
+      <h3><b><u>VOCATIONAL TRAINING AGREEMENT FORM OcTAVE@IMH</u></b></h3>
+    </div>
+
+       <div class="d-flex justify-content-center flex-column  w-75 align-self-center ">
+         <div class="w-100 d-flex justify-content-start ">
+         <p><b>Code Number: {{id}}
+           <br>
+           Date: {{date}}
+           <br>
+           Type of Training: {{place}}</b></p>
+         </div>
+
+       <div class="w-100 d-flex justify-content-start ">
+         <p>Dear Sir/Madam/Miss:</p>
+       </div>
+
+<div class="d-flex justify-content-center">
+<p>Congratulations on passing the vocational training assessment. We are pleased to offer you the vocational training program at OcTAVE@ IMG.</p>
+</div>
+
+<div class="d-flex justify-content-start">
+<p>Please refer to the training terms as explained by Occupational Therapist as follows</P>
+</div>
+
+<div class="d-flex justify-content-start">
+<p>&#9633; {{afbc[0]}}</p>
+</div>
+
+<div class="d-flex justify-content-start">
+<p>&#9633; {{afbc[1]}}</p>
+</div>
+
+<div class="d-flex justify-content-start">
+<p>&#9633; {{afbc[2]}}</p>
+</div>
+
+<div class="d-flex justify-content-start">
+<p>&#9633; {{afbc[3]}}</p>
+</div>
+
+<div class="d-flex justify-content-start">
+<p>&#9633; {{afbc[4]}}</p>
+</div>
+
+<div class="d-flex justify-content-start">
+<p>&#9633; {{afbc[5]}}</p>
+</div>
+
+<div class="d-flex justify-content-start">
+<p>Your progress and training perofrmance will be reviewed on a regular basis. Upon assessment to be ready for employment, we will assist you in job placement.</p>
+</div>
+
+<div class="d-flex justify-content-start">
+<p>We look forward to you joining the program</P>
+</div>
+
+<div class="d-flex justify-content-start">
+<p>Thank you.</p>
+</div>
+
+</div>
+<head>
+    <meta charset="UTF-8" />
+    <title>signature test</title>
+    <meta name="description" content="Signature Pad" />
+    <link href="w3.css" type="text/css" rel="stylesheet" />
+
+    <style type="text/css">
+        .m-signature-pad--body canvas {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 200px;
+            border: 1px solid #CCCCCC;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="d-flex justify-content-center flex-column  w-75 align-self-center ">
+    <h3><p>I understand the content and accept the above stated terms and conditions</p></h3>
+
+      <hr/>
+      <h3>
+    Signature:</h3>
+
+    <form class="w3-container" action="process.php" method="POST" name="DAFORM" onSubmit="submitForm();" enctype="multipart/form-data" target="_self">
+        <div id="signature-pad" class="m-signature-pad">
+            <div class="m-signature-pad--body">
+                <canvas id="draw-here"></canvas>
+                <input type="hidden" name="signature" id="Signature1" value="sig">
+            </div>
+        </div>
+
+        <button type="button" class="w3-btn w3-black col-sm-2" onclick="signaturePad.clear();">Clear</button>
+        <button type="button" class="w3-btn w3-red col-sm-2" onclick="download('signature.png');">Download/Save</button>
+    </form>
+</div>
+
+
+
+</body>
+<div class="d-flex justify-content-center flex-column w-75 align-self-center ">
+<form class="d-flex flex-column justify-content-center" id="main-form" action="/addconsentform" method="post">
+<div class="form-check">
+  <input type="text" value="" id="sig-val" name="sig" hidden>
+  <input type="radio" class="form-check-input" id="Check1" name="Check1" onclick="enablebutton()" value="I agree with the above condition">
+  <label class="form-check-label" for="Check1">I Agree with the above condition.</label>
+</div>
+<div class="d-flex bd-highlight mb-3 w-100 ">
+  <div class="p-2 bd-highlight">
+    <input class="btn btn-primary" onclick="goback()" type="button" value="BACK"/>
+  </div>
+  <div class="ml-auto p-2 bd-highlight">
+
+    <input class="btn btn-primary" type="button" id="choose" value="SUBMIT" disabled/>
+
+  </div>
+
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+<script type="text/javascript">
+var wrapper = document.getElementById("signature-pad"),
+   canvas = wrapper.querySelector("canvas"),
+   signaturePad;
+   $(document).ready(function(){
+     $('#choose').on('click', function(){
+       $('#sig-val').val(signaturePad.toDataURL());
+       $('#main-form').submit();
+     });
+   });
+function resizeCanvas() {
+    var oldContent = signaturePad.toData();
+    var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+    canvas.width = canvas.offsetWidth * ratio;
+    canvas.height = canvas.offsetHeight * ratio;
+    canvas.getContext("2d").scale(ratio, ratio);
+    signaturePad.clear();
+    signaturePad.fromData(oldContent);
+}
+
+
+
+function download(filename) {
+  var blob = dataURLToBlob(signaturePad.toDataURL());
+  var url = window.URL.createObjectURL(blob);
+
+  var a = document.createElement("a");
+  a.style = "display: none";
+  a.href = url;
+  a.download = filename;
+
+  document.body.appendChild(a);
+  a.click();
+
+  window.URL.revokeObjectURL(url);
+}
+
+
+function dataURLToBlob(dataURL) {
+
+  var parts = dataURL.split(';base64,');
+  var contentType = parts[0].split(":")[1];
+  var raw = window.atob(parts[1]);
+  var rawLength = raw.length;
+  var uInt8Array = new Uint8Array(rawLength);
+
+  for (var i = 0; i < rawLength; ++i) {
+    uInt8Array[i] = raw.charCodeAt(i);
+  }
+
+  return new Blob([uInt8Array], { type: contentType });
+}
+
+
+
+
+var signaturePad = new SignaturePad(canvas);
+signaturePad.minWidth = 1;
+signaturePad.maxWidth = 5;
+signaturePad.penColor = "#000000";
+signaturePad.backgroundColor = "#FFFFFF";
+
+window.onresize = resizeCanvas;
+resizeCanvas();
+
+</script>
+
+<script type="text/javascript">
+  function goback(){
+    window.history.back();
+  }
+
+
+  function enablebutton() {
+    document.getElementById("choose").disabled = false;
+  }
+</script>
+
+{%endblock%}

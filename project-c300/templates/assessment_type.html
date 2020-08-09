@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<title>Assessment Selection</title>
+<script type="text/javascript">
+  function goback(){
+    window.history.back();
+  }
+
+</script>
+
+<div class="row d-flex justify-content-center">
+  <div class="white-bg custom-shadow w-50 flex-column d-flex justify-content-center ">
+
+      <div class="row">
+         <div class="w-100 d-flex justify-content-center ">
+           <img src=/static/institute_of_mental_health.png width="500" height="275">
+         </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="w-100 d-flex justify-content-center ">
+             <form action="addtype" method="post">
+
+              <h2>Select types of assessment</h2>
+
+              <div class="form-group row">
+                <label class="control-label col-sm-4">Types of test:</label>
+                <div class="col-sm-8">
+                  <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="new_ass" name="Type" value="1" required/>
+                    <label class="form-check-label" for="new_ass">New Assessment</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="3rd_month" name="Type" value="2"required/>
+                    <label class="form-check-label" for="3rd_month">3rd Month Assessment</label>
+                  </div>
+                </div>
+              </div>
+
+            <div class="d-flex bd-highlight mb-3 w-100 ">
+              <!-- Button trigger modal -->
+              <div class="ml-auto p-2 bd-highlight">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                NEXT
+              </button>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">Select Assessment Type</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Are the details you have chosen correct?(You are unable to change later on)
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                      <input class="btn btn-primary" type="submit" value="Yes"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

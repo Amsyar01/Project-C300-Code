@@ -1,0 +1,615 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+
+
+<title>Update Process</title>
+
+
+<div class="row d-flex justify-content-center">
+  <div class="white-bg custom-shadow w-75 flex-column d-flex justify-content-center ">
+    <div class="row">
+       <div class="w-100 d-flex justify-content-center ">
+         <img src=/static/institute_of_mental_health.png width="500" height="275">
+       </div>
+    </div>
+
+    <hr/>
+    <div class="row d-flex justify-content-center">
+      <h1>Process Skills</h1>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <h1>Enter the code you want to modify</h1>
+    </div>
+
+    <div class="row d-flex justify-content-center flex-row">
+      <form action="/changeprocess" method="post" class="d-flex flew-row">
+        <select id="id" name="id" class="form-control" required>
+          <option value="" disabled selected> -- CHOOSE ONE -- </option>
+          <option value="ac,4">ac,4</option>
+          <option value="ac,3">ac,3</option>
+          <option value="ac,2">ac,2</option>
+          <option value="ac,1">ac,1</option>
+          <option value="ac,0">ac,0</option>
+          <option value="atd,4">atd,4</option>
+          <option value="atd,3">atd,3</option>
+          <option value="atd,2">atd,2</option>
+          <option value="atd,1">atd,1</option>
+          <option value="atd,0">atd,0</option>
+          <option value="fi,4">fi,4</option>
+          <option value="fi,3">fi,3</option>
+          <option value="fi,2">fi,2</option>
+          <option value="fi,1">fi,1</option>
+          <option value="fi,0">fi,0</option>
+          <option value="inw,4">inw,4</option>
+          <option value="inw,3">inw,3</option>
+          <option value="inw,2">inw,2</option>
+          <option value="inw,1">inw,1</option>
+          <option value="inw,0">inw,0</option>
+          <option value="tot,4">tot,4</option>
+          <option value="tot,3">tot,3</option>
+          <option value="tot,2">tot,2</option>
+          <option value="tot,1">tot,1</option>
+          <option value="tot,0">tot,0</option>
+          <option value="oa,4">oa,4</option>
+          <option value="oa,3">oa,3</option>
+          <option value="oa,2">oa,2</option>
+          <option value="oa,1">oa,1</option>
+          <option value="oa,0">oa,0</option>
+          <option value="ps,4">ps,4</option>
+          <option value="ps,3">ps,3</option>
+          <option value="ps,2">ps,2</option>
+          <option value="ps,1">ps,1</option>
+          <option value="ps,0">ps,0</option>
+          <option value="fd,4">fd,4</option>
+          <option value="fd,3">fd,3</option>
+          <option value="fd,2">fd,2</option>
+          <option value="fd,1">fd,1</option>
+          <option value="fd,0">fd,0</option>
+          <option value="tm,4">tm,4</option>
+          <option value="tm,3">tm,3</option>
+          <option value="tm,2">tm,2</option>
+          <option value="tm,1">tm,1</option>
+          <option value="tm,0">tm,0</option>
+        </select>
+      &nbsp; &nbsp;
+      <br/>
+      <input type="text" id="desc" name="desc" class="form-control" placeholder="Description" required>
+      &nbsp; &nbsp;
+      <div>
+        <input class="btn btn-primary" type="submit" value="MODIFY" id="choose"/>
+      </div>
+    </form>
+    </div>
+    <hr/>
+    <table class="table table-striped ">
+      <thead>
+        <tr>
+          <th scope="col" style="width:10%;">Motor Skill</th>
+          <th scope="col">4 points</th>
+          <th scope="col">3 points</th>
+          <th scope="col">2 points </th>
+          <th scope="col">1 points </th>
+          <th scope="col">NA</th>
+        </tr>
+      </thead>
+      <tbody id="parent">
+
+        <!-- Row1_start-------------------------- -->
+        <tr>
+          <th scope="row">Attention / Concentration</th>
+          <td>
+          <div class="form-check">
+            <label class="form-check-label " for="pt4">
+              <b>(ac,4)</b>
+              <br>
+              {{ac[4]}}
+            </label>
+          </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt3">
+                <b>(ac,3)</b>
+                <br>
+                {{ac[3]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt2">
+                <b>(ac,2)</b>
+                <br>
+                {{ac[2]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt1">
+                <b>(ac,1)</b>
+                <br>
+                {{ac[1]}}
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="NA">
+                <b>(ac,0)</b>
+                <br>
+                {{ac[0]}}
+              </label>
+            </div>
+          </td>
+
+        </tr>
+
+        <!-- Row1end========================================= -->
+        <!-- Row2start========================================= -->
+
+        <tr>
+          <th scope="row">Attention to detail</th>
+          <td>
+          <div class="form-check">
+            <label class="form-check-label" for="pt4">
+              <b>(atd,4)</b>
+              <br>
+              {{atd[4]}}
+            </label>
+          </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt3">
+                <b>(atd,3)</b>
+                <br>
+                {{atd[3]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt2">
+                <b>(atd,2)</b>
+                <br>
+                {{atd[2]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt1">
+                <b>(atd,1)</b>
+                <br>
+                {{atd[1]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="NA">
+                <b>(atd,0)</b>
+                <br>
+                {{atd[0]}}
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Row2end========================================= -->
+        <!-- Row3start========================================= -->
+        <tr>
+          <th scope="row">Follow Instructions</th>
+          <td>
+          <div class="form-check">
+            <label class="form-check-label" for="pt4">
+              <b>(fi,4)</b>
+              <br>
+              {{fi[4]}}
+            </label>
+          </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt3">
+                <b>(fi,3)</b>
+                <br>
+                {{fi[3]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt2">
+                <b>(fi,2)</b>
+                <br>
+                {{fi[2]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt1">
+                <b>(fi,1)</b>
+                <br>
+                {{fi[1]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="NA">
+                <b>(fi,0)</b>
+                <br>
+                {{fi[0]}}
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Row3end========================================= -->
+        <!-- Row4start========================================= -->
+        <tr>
+          <th scope="row">Initiation of new task</th>
+          <td>
+          <div class="form-check">
+            <label class="form-check-label" for="pt4">
+              <b>(inw,4)</b>
+              <br>
+              {{inw[4]}}
+            </label>
+          </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt3">
+                <b>(inw,3)</b>
+                <br>
+                {{inw[3]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt2">
+                <b>(inw,2)</b>
+                <br>
+                {{inw[2]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt1">
+                <b>(inw,1)</b>
+                <br>
+                {{inw[1]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="NA">
+                <b>(inw,0)</b>
+                <br>
+                {{inw[0]}}
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Row4end========================================= -->
+        <!-- Row5start========================================= -->
+
+        <tr>
+          <th scope="row">Termination of task</th>
+          <td>
+          <div class="form-check">
+            <label class="form-check-label" for="pt4">
+              <b>(tot,4)</b>
+              <br>
+              {{tot[4]}}
+            </label>
+          </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt3">
+                <b>(tot,3)</b>
+                <br>
+                {{tot[3]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt2">
+                <b>(tot,2)</b>
+                <br>
+                {{tot[2]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt1">
+                <b>(tot,1)</b>
+                <br>
+                {{tot[1]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="NA">
+                <b>(tot,0)</b>
+                <br>
+                {{tot[0]}}
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Row5end========================================= -->
+        <!-- Row6start========================================= -->
+
+        <tr>
+          <th scope="row">Organizational ability</th>
+          <td>
+          <div class="form-check">
+            <label class="form-check-label" for="pt4">
+              <b>(oa,4)</b>
+              <br>
+              {{oa[4]}}
+            </label>
+          </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt3">
+                <b>(oa,3)</b>
+                <br>
+                {{oa[3]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt2">
+                <b>(oa,2)</b>
+                <br>
+                {{oa[2]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt1">
+                <b>(oa,1)</b>
+                <br>
+                {{oa[1]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="NA">
+                <b>(oa,0)</b>
+                <br>
+                {{oa[0]}}
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Row6end========================================= -->
+        <!-- Row7start========================================= -->
+
+        <tr>
+          <th scope="row">Problem Solving</th>
+          <td>
+          <div class="form-check">
+            <label class="form-check-label" for="pt4">
+              <b>(ps,4)</b>
+              <br>
+              {{ps[4]}}
+          </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt3">
+                <b>(ps,3)</b>
+                <br>
+                {{ps[3]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt2">
+                <b>(ps,2)</b>
+                <br>
+                {{ps[2]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt1">
+                <b>(ps,1)</b>
+                <br>
+                {{ps[1]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="NA">
+                <b>(ps,0)</b>
+                <br>
+                {{ps[0]}}
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Row7end========================================= -->
+        <!-- Row8start========================================= -->
+
+        <tr>
+          <th scope="row">Frustration device</th>
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt4">
+                <b>(fd,4)</b>
+                <br>
+                {{fd[4]}}
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt3">
+                <b>(fd,3)</b>
+                <br>
+                {{fd[3]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt2">
+                <b>(fd,2)</b>
+                <br>
+                {{fd[2]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt1">
+                <b>(fd,1)</b>
+                <br>
+                {{fd[1]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="NA">
+                <b>(fd,0)</b>
+                <br>
+                {{fd[0]}}
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Row8end========================================= -->
+        <!-- Row9start========================================= -->
+
+        <tr>
+          <th scope="row">Time management</th>
+          <td>
+          <div class="form-check">
+            <label class="form-check-label" for="pt4">
+              <b>(tm,4)</b>
+              <br>
+              {{tm[4]}}
+          </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt3">
+                <b>(tm,3)</b>
+                <br>
+                {{tm[3]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt2">
+                <b>(tm,2)</b>
+                <br>
+                {{tm[2]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt1">
+                <b>(tm,1)</b>
+                <br>
+                {{tm[1]}}
+              </label>
+            </div>
+          </td>
+
+          <td>
+            <div class="form-check">
+              <label class="form-check-label" for="NA">
+                <b>(tm,0)</b>
+                <br>
+                {{tm[0]}}
+              </label>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="d-flex bd-highlight mb-3 w-100 ">
+      <div class="p-2 bd-highlight">
+        <form action='selectmodify' method='post'>
+          <input type='submit' class="btn btn-primary btn-lg" value="BACK" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script type="text/javascript">
+    function goback(){
+      window.history.back();
+    }
+  </script>
+
+{% endblock %}

@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<title>Client Creation</title>
+<script type="text/javascript">
+  function goback(){
+    window.history.back();
+  }
+
+  $(document).ready(function () {
+    $('#etc').hide();
+    $('#education').change( function(e) {
+        if (this.value == 'others') {
+          $('#etc').show();
+          $('#specify').focus();
+        }
+        else {
+          $('#etc').hide();
+        }
+    });
+  });
+
+
+</script>
+
+<div class="row d-flex justify-content-center">
+  <div class="white-bg custom-shadow w-50 flex-column d-flex justify-content-center ">
+
+      <div class="row">
+         <div class="w-100 d-flex justify-content-center ">
+           <img src=/static/institute_of_mental_health.png width="500" height="275">
+         </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="w-100 d-flex justify-content-center ">
+             <form action="createclient" method="post">
+
+              <h1>Create Client Information </h1>
+
+              <hr/>
+              <div class="form-group row">
+                <label class="control-label col-sm-4">Age:</label>
+                <div class="col-sm-8">
+                  <label for="name" class="sr-only">Age</label>
+                  <input type="number" min="1" max="100" name="Age" id="Age" class="form-control" placeholder="Eg:18" required>
+                </div>
+              </div>
+
+
+
+            <div class="form-group row">
+              <label class="control-label col-sm-4">Gender:</label>
+              <div class="col-sm-8">
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" id="male" name="Gender" value="Male" required/>
+                  <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" id="female" name="Gender" value="Female"required/>
+                  <label class="form-check-label" for="female">Female</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="refer" class="control-label col-sm-4">Education</label>
+              <div class="col-sm-8">
+                <select id="education" name="Education" class="form-control" required>
+                  <option value="" disabled selected> -- CHOOSE ONE -- </option>
+                  <option value="Primary">Primary</option>
+                  <option value="Secondary">Secondary</option>
+                  <option value="ITE">ITE</option>
+                  <option value="Poly">Poly</option>
+                  <option value="JC">JC</option>
+                  <option value="University">University</option>
+                  <option value="Postgraduate">Postgraduate</option>
+                  <option value="others">Other:</option>
+                </select>
+                <br/>
+
+                <div id="etc">
+                  <label for="name" class="sr-only">Others</label>
+                  <input type="text" name="etc" id="specify" class="form-control" placeholder="Please Specify" >
+                </div>
+
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="refer" class="control-label col-sm-4">Unemployment Period:</label>
+              <div class="col-sm-8">
+                <select id="period" name="Period" class="form-control" required>
+                  <option value=""disabled selected> -- CHOOSE ONE -- </option>
+                  <option value="<1year"> Less than 1 years </option>
+                  <option value="1-3years">1 to 3 years </option>
+                  <option value="3-5years">3 to 5 years </option>
+                  <option value=">5years"> More than 5 years </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="control-label col-sm-4">Types of test:</label>
+              <div class="col-sm-8">
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" id="admin" name="Type" value="1" required/>
+                  <label class="form-check-label" for="admin">Admin</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" id="retail" name="Type" value="2"required/>
+                  <label class="form-check-label" for="retail">Retail</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" id="f&b" name="Type" value="3"required/>
+                  <label class="form-check-label" for="f&b">F&B</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" id="cleaning" name="Type" value="4"required/>
+                  <label class="form-check-label" for="cleaning">Cleaning</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex bd-highlight mb-3 w-100 ">
+              <div class="p-2 bd-highlight">
+                <input class="btn btn-primary" onclick="goback()" type="button" value="BACK"/>
+              </div>
+              <!-- Button trigger modal -->
+              <div class="ml-auto p-2 bd-highlight">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                SUBMIT
+              </button>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">Create Client</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Are the details you have entered correct?(You are unable to change later on)
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                      <input class="btn btn-primary" type="submit" value="Yes"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

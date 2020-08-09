@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+
+
+<title>Update Motor</title>
+
+
+<div class="row d-flex justify-content-center">
+  <div class="white-bg custom-shadow w-75 flex-column d-flex justify-content-center ">
+
+  <div class="row">
+     <div class="w-100 d-flex justify-content-center ">
+       <img src=/static/institute_of_mental_health.png width="500" height="275">
+     </div>
+  </div>
+  <hr/>
+      <div class="row d-flex justify-content-center">
+        <h1>Motor Skills</h1>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <h1>Enter the code you want to modify</h1>
+      </div>
+      <div class="row d-flex justify-content-center flex-row">
+        <form action="/changemotor" method="post" class="d-flex flew-row">
+          <select id="id" name="id" class="form-control" required>
+              <option value="" disabled selected> -- CHOOSE ONE -- </option>
+              <option value="bp,4">bp,4</option>
+              <option value="bp,3">bp,3</option>
+              <option value="bp,2">bp,2</option>
+              <option value="bp,1">bp,1</option>
+              <option value="bp,0">bp,0</option>
+              <option value="balance,4">balance,4</option>
+              <option value="balance,3">balance,3</option>
+              <option value="balance,2">balance,2</option>
+              <option value="balance,1">balance,1</option>
+              <option value="balance,0">balance,0</option>
+              <option value="strength,4">strength,4</option>
+              <option value="strength,3">strength,3</option>
+              <option value="strength,2">strength,2</option>
+              <option value="strength,1">strength,1</option>
+              <option value="strength,0">strength,0</option>
+              <option value="pe,4">pe,4</option>
+              <option value="pe,3">pe,3</option>
+              <option value="pe,2">pe,2</option>
+              <option value="pe,1">pe,1</option>
+              <option value="pe,0">pe,0</option>
+            </select>
+          &nbsp; &nbsp;
+        <br/>
+        <input type="text" id="desc" name="desc" class="form-control" placeholder="Description" required>
+        &nbsp; &nbsp;
+        <div>
+          <input class="btn btn-primary" type="submit" value="MODIFY" id="choose"/>
+        </div>
+
+      </form>
+      </div>
+      <hr/>
+      <table class="table table-striped ">
+        <thead>
+          <tr>
+            <th scope="col" style="width:10%;">Motor Skill</th>
+            <th scope="col">4 points</th>
+            <th scope="col">3 points</th>
+            <th scope="col">2 points </th>
+            <th scope="col">1 points </th>
+            <th scope="col">NA</th>
+          </tr>
+        </thead>
+        <tbody id="parent">
+          <!-- Row1_start-------------------------- -->
+          <tr>
+            <th scope="row">Body Positions</th>
+            <td>
+              <div class="form-check">
+                <label class="form-check-label " for="pt4">
+                  <b>(bp,4)</b>
+                  <br>
+                  {{ bp[4] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="pt3">
+                  <b>(bp,3)</b>
+                  <br>
+                  {{ bp[3] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="pt2">
+                  <b>(bp,2)</b>
+                  <br>
+                  {{ bp[2] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="pt1">
+                  <b>(bp,1)</b>
+                  <br>
+                  {{ bp[1] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <b>(bp,0)</b>
+                <br>
+                <label class="form-check-label" for="NA">
+                  {{ bp[0] }}
+                </label>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Row1end========================================= -->
+          <!-- Row2start========================================= -->
+
+          <tr>
+            <th scope="row">Balance</th>
+            <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt4">
+                <b>(balance,4)</b>
+                <br>
+                {{ b[4] }}
+              </label>
+            </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="pt3">
+                  <b>(balance,3)</b>
+                  <br>
+                  {{ b[3] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="pt2">
+                  <b>(balance,2)</b>
+                  <br>
+                  {{ b[2] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="pt1">
+                  <b>(balance,1)</b>
+                  <br>
+                  {{ b[1] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="NA">
+                  <b>(balance,0)</b>
+                  <br>
+                  {{ b[0] }}
+                </label>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Row2end========================================= -->
+          <!-- Row3start========================================= -->
+          <tr>
+            <th scope="row">Strength</th>
+            <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt4">
+                <b>(strength,4)</b>
+                <br>
+                {{ s[4] }}
+              </label>
+            </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="pt3">
+                  <b>(strength,3)</b>
+                  <br>
+                  {{ s[3] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="pt2">
+                  <b>(strength,2)</b>
+                  <br>
+                  {{ s[2] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="pt1">
+                  <b>(strength,1)</b>
+                  <br>
+                  {{ s[1] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="NA">
+                  <b>(strength,0)</b>
+                  <br>
+                  {{ s[0] }}
+                </label>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Row3end========================================= -->
+          <!-- Row4start========================================= -->
+          <tr>
+            <th scope="row">Physical endurance<br>(5 minute = 1 break)<br>(10 minutes = 2 break)<br>(15 minutes = 3 breaks)</th>
+            <td>
+            <div class="form-check">
+              <label class="form-check-label" for="pt4">
+                <b>(pe,4)</b>
+                <br>
+                {{ pe[4] }}
+              </label>
+            </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="pt3">
+                  <b>(pe,3)</b>
+                  <br>
+                  {{ pe[3] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="pt2">
+                  <b>(pe,2)</b>
+                  <br>
+                  {{ pe[2] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="pt1">
+                  <b>(pe,1)</b>
+                  <br>
+                  {{ pe[1] }}
+                </label>
+              </div>
+            </td>
+
+            <td>
+              <div class="form-check">
+                <label class="form-check-label" for="NA">
+                  <b>(pe,0)</b>
+                  <br>
+                  {{ pe[0] }}
+                </label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex bd-highlight mb-3 w-100 ">
+        <div class="p-2 bd-highlight">
+          <form action='selectmodify' method='post'>
+            <input type='submit' class="btn btn-primary btn-lg" value="BACK" />
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function goback(){
+      window.history.back();
+    }
+  </script>
+
+{% endblock %}

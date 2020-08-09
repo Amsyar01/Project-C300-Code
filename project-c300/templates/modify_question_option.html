@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<title>Select Option</title>
+<script type="text/javascript">
+  function goback(){
+    window.history.back();
+  }
+
+</script>
+<div class="row d-flex justify-content-center">
+  <div class="white-bg custom-shadow w-50 flex-column d-flex justify-content-center ">
+    <div class="row">
+      <div class="w-100 d-flex justify-content-center ">
+        <img src=/static/institute_of_mental_health.png width="500" height="275">
+      </div>
+    </div>
+
+  <hr/>
+
+
+    <div>
+      <div class="row d-flex justify-content-center">
+        <h1>Which option you would like to modify ?</h1>
+      </div>
+      <div>
+        <div class="w-100 d-flex justify-content-center">
+          <div>
+            <form class="d-flex justify-content-center" action='/admin/modify-motor' method='post'>
+              <input type='submit' class="btn btn primary btn-lg" value="Motor Skills" />
+            </form>
+            <form class="d-flex justify-content-center" action='/admin/modify-process' method='post'>
+              <input type='submit' class="btn btn primary btn-lg" value="Process Skills" />
+            </form>
+            <form class="d-flex justify-content-center" action='/admin/modify-social' method='post'>
+              <input type='submit' class="btn btn primary btn-lg" value="Social Interaction Skills" />
+            </form>
+            <form class="d-flex justify-content-center" action='/admin/modify-consent-form' method='post'>
+              <input type='submit' class="btn btn primary btn-lg" value="Consent Forms" />
+            </form>
+            <div class="d-flex justify-content-center">
+              <div class="p-2 bd-highlight">
+                <form action='/admin' method='post'>
+                  <input type='submit' class="btn btn-outline-dark" value="Back to admin page" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}
